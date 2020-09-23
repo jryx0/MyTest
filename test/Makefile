@@ -12,6 +12,9 @@ SRCFILE= $(notdir $(SRC))
 OBJ = $(SRCFILE:%$(EXT)=$(OBJDIR)/%.o)
 DEP = $(OBJ:$(OBJDIR)/%.o=$(OBJDIR)/%.d)
 
+WDELOBJ = $(subst /,\,$(OBJ))
+WDELDEP = $(subst /,\,$(DEP))
+WDELAPP = $(subst /,\, $(OUTPUTDIR)/$(TESTAPPNAME).exe)
 
 $(SHOW):
 	@echo --------------$(APPNAME)_test:$(SHOW) Makefile-----------------------
@@ -40,5 +43,14 @@ $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
 $(OBJDIR)/%.o: $(TESTDIR)/%$(EXT)
 	$(CC) $(CXXFLAGS)  -I $(INCDIR) -o $@ -c $<	
 
-.PHONY: $(BUILD) $(SHOW) 
+
+$(CLEANW):
+	$(DEL) $(WDELOBJ) $(WDELDEP) 
+	$(DEL) $(WDELAPP)
+	$(DEL) $(OBJDIR)\*.EXE
+
+
+.PHONY: $(BUILD) $(SHOW)  $(CLEANW)
+
+
 	

@@ -46,4 +46,9 @@ $(TEST):
 $(BUILD):	
 	$(MAKE) $(BUILD) -C $(SRCDIR)
 
- .PHONY: $(SHOW) $(TESTDIR)
+$(CLEANW):
+	$(MAKE) $(CLEANW) -C $(TESTDIR)
+	$(MAKE) $(CLEANW) -C $(SRCDIR)
+
+
+ .PHONY: $(SHOW) $(TESTDIR) $(CLEANW)

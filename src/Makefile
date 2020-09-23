@@ -7,18 +7,18 @@ SRC = $(wildcard $(SRCDIR)/*$(EXT))
 SRCFILE= $(notdir $(SRC)) 
 OBJ = $(SRCFILE:%$(EXT)=$(OBJDIR)/%.o)
 DEP = $(OBJ:$(OBJDIR)/%.o=$(OBJDIR)/%.d)
-WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
-WDELDEP =  $(OBJ:$(OBJDIR)/%.o=$(OBJDIR)\\%.d)
+
+WDELOBJ = $(subst /,\,$(OBJ))
+WDELDEP = $(subst /,\,$(DEP))
+WDELAPP = $(subst /,\, $(OUTPUTDIR)/$(APPNAME).exe)
 
 $(SHOW):
 	@echo ++++++++++++++++$(APPNAME):src Makefile++++++++++++++
 	@echo this is in src Makefile
-	@echo srcdir=$(SRCFILE)
-	@echo SRCFILE = $(OBJ)
-	@echo SRC = $(SRC)
- 
-
-
+	@echo WDELOBJ=$(WDELOBJ)
+	@echo WDELDEP = $(WDELDEP)
+	@echo WDELAPP = $(WDELAPP)
+	
 $(BUILD): $(APPNAME)  
 $(APPNAME): $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(OUTPUTDIR)/$@ $^ $(LDFLAGS)
@@ -35,5 +35,9 @@ $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
 	$(CC) $(CXXFLAGS)  -I $(INCDIR) -o $@ -c $<	
 
  
-.PHONY: $(BUILD) $(SHOW) 
+.PHONY: $(BUILD) $(SHOW) $(CLEANW)
+
+$(CLEANW):
+	$(DEL) $(WDELOBJ) $(WDELDEP) $(WDELAPP)
+
 	
