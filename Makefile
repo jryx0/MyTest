@@ -1,72 +1,49 @@
-########################################################################
-####################### Makefile Template ##############################
-########################################################################
 
-# Compiler settings - Can be customized.
-CC = g++
-CXXFLAGS = -std=c++11 -Wall -g
-LDFLAGS = 
+# Compiler settings
+export CC = g++
+export CXXFLAGS = -std=c++11 -Wall -g
+export LDFLAGS = 
 
-# Makefile settings - Can be customized.
-APPNAME = mytest
-EXT = .cpp
-SRCDIR = src
-OBJDIR = obj
-INCDIR = $(CURDIR)/include
-OUTPUTDIR = $(CURDIR)/out
 
-############## Do not change anything from here downwards! #############
-SRC = $(wildcard $(SRCDIR)/*$(EXT))
-OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
-DEP = $(OBJ:$(OBJDIR)/%.o=$(OBJDIR)/%.d)
+
+
+# Makefile settings
+export APPNAME = mytest
+export EXT = .cpp
+export ROOTDIR =  $(CURDIR)
+export INCDIR = $(CURDIR)/include
+export OUTPUTDIR = $(CURDIR)/out
+
+#test exclude main
+export EXCLUDEFILE = main.c
+
 # UNIX-based OS variables & settings
-RM = rm
-DELOBJ = $(OBJ)
+export RM = rm
+export DELOBJ = $(OBJ)
 # Windows OS variables & settings
-DEL = del
-EXE = .exe
-WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
-WDELDEP =  $(OBJ:$(OBJDIR)/%.o=$(OBJDIR)\\%.d)
+export DEL = del
+export EXE = .exe
 
-########################################################################
-####################### Targets beginning here #########################
-########################################################################
 
-build: $(APPNAME)
+export SHOW = show
+export BUILD = build
+export CLEANW = cleanw
+export TEST = test
 
-# Builds the app
-$(APPNAME): $(OBJ)
-	$(CC) $(CXXFLAGS) -o $(OUTPUTDIR)/$@ $^ $(LDFLAGS)
+TESTDIR = $(TEST)
+SRCDIR = src
 
-# Creates the dependecy rules
-$(OBJDIR)/%.d: $(SRCDIR)/%$(EXT)
-	@$(CPP) $(CFLAGS) -I $(INCDIR) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
 
-# Includes all .h files
--include $(DEP)
+###############################################################################
+$(SHOW):	 
+	@echo --------------$(APPNAME):$(SHOW) Makefile-----------------------	 
+	@echo CC = $(CC)
+	$(MAKE) $(SHOW) -C $(SRCDIR) 
 
-# Building rule for .o files and its .c/.cpp in combination with all .h
-$(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
-	$(CC) $(CXXFLAGS) -I $(INCDIR) -o $@ -c $<
+$(TEST):	
+	$(MAKE) $(BUILD) -C $(TESTDIR)
 
-################### Cleaning rules for Unix-based OS ###################
-# Cleans complete project
-.PHONY: clean
-clean:
-	$(RM) $(DELOBJ) $(DEP) $(APPNAME)
+$(BUILD):	
+	$(MAKE) $(BUILD) -C $(SRCDIR)
 
-# Cleans only all files with the extension .d
-.PHONY: cleandep
-cleandep:
-	$(RM) $(DEP)
-
-#################### Cleaning rules for Windows OS #####################
-# Cleans complete project
-.PHONY: cleanw
-cleanw:
-	$(DEL) $(WDELOBJ) $(WDELDEP) out\$(APPNAME)$(EXE)
-
-# Cleans only all files with the extension .d
-.PHONY: cleandepw
-cleandepw:
-	$(DEL) $(DEP)
+ .PHONY: $(SHOW) $(TESTDIR)

@@ -1,0 +1,17 @@
+修改工程名称：
+MyTest -> MyProject
+
+1.Makefile
+APPNAME = mytest -> APPNAME = MyProject
+
+2. .vscode/tasks.json :
+所有"label"后 "MyTest -> MyProject"
+"label": "MyTest Make build" -> "label": "MyProject Make build"
+
+3. .vscode/launch.json
+"preLaunchTask": "MyTest Make build" 
+    ->"preLaunchTask": "MyProject Make build"
+"program": "${workspaceFolder}\\out\\myTest.exe" 
+    ->"program": "${workspaceFolder}\\out\\MyProject.exe"
+"name": "启动Mytest调试",
+    -> "启动MyProject调试"
