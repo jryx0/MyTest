@@ -8,10 +8,19 @@ APPNAME = mytest -> APPNAME = MyProject
 所有"label"后 "MyTest -> MyProject"
 "label": "MyTest Make build" -> "label": "MyProject Make build"
 
-3. .vscode/launch.json
+3. .vscode/launch.json 
+"preLaunchTask" 与 asks.json"label" 一一对应
+
 "preLaunchTask": "MyTest Make build" 
     ->"preLaunchTask": "MyProject Make build"
 "program": "${workspaceFolder}\\out\\myTest.exe" 
     ->"program": "${workspaceFolder}\\out\\MyProject.exe"
 "name": "启动Mytest调试",
     -> "启动MyProject调试"
+
+"preLaunchTask": "MyTest Make test" 
+    ->"preLaunchTask": "MyProject Make test"
+"program": "${workspaceFolder}\\out\\myTest.exe" 
+    ->"program": "${workspaceFolder}\\out\\MyProject_test.exe"
+"name": "启动Mytest_test调试",
+    -> "启动MyProject_test调试"

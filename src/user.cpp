@@ -17,9 +17,10 @@ user::~user() {
     delete this->name;
 }
 
-void user::toString(void) {
-  printf("C style>>>>user id:%d, user name:%s\r\n", this->ID, this->name);
-
+char* user::toString(void) {
+   
   std::cout << "C++ sytle>>>>>user id:" << this->ID << ",user name:" << this->name
             << std::endl;
+  
+  return this ->name;
 }

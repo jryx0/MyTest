@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}\\out\\myTest.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}", 
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
@@ -24,6 +24,28 @@
                 }
             ],
             "preLaunchTask": "MyTest Make build",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "启动Mytest_Test调试",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\out\\myTest_Test.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "MyTest Make test",
             "internalConsoleOptions": "neverOpen"
         }
     ]

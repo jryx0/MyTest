@@ -17,7 +17,7 @@ public:
   user(int id, const char *name);
   ~user();
 
-  void toString(void);
+  char *toString(void);
 
 protected:
   char *name;

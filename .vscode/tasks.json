@@ -20,11 +20,11 @@
       ]
     },
     {
-      "label": "MyTest Make show",
+      "label": "MyTest Make test",
       "type": "shell",
       "command": "mingw32-make",
       "args": [
-        "show"
+        "test"
       ]
     }
   ]
