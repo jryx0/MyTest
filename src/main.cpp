@@ -3,7 +3,6 @@
 #include <stdio.h>
 
 int main(void) {
-
   user *u;
   u = new user(1, "test");
 
