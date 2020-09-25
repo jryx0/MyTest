@@ -23,7 +23,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "MyTest Make build",
+            "preLaunchTask": "MyTest生成",
             "internalConsoleOptions": "neverOpen"
         },
         {

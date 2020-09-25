@@ -12,7 +12,6 @@ int main(void) {
   RUN(test);
 
   TEST_REPORT();
-
   getch();
   return 0;
 }
