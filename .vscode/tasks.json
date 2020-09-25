@@ -23,7 +23,7 @@
       "problemMatcher": "$gcc"
     },
     {
-      "label": "MyTest生成测试",
+      "label": "MyTest测试生成",
       "type": "shell",
       "command": "mingw32-make",
       "args": [
