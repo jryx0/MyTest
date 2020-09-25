@@ -6,8 +6,9 @@
     {
       "label": "MyTest生成",
       "type": "shell",
-      "command": "mingw32-make APPNAME=${workspaceFolderBasename}",
+      "command": "mingw32-make",
       "args": [
+        "APPNAME=${workspaceFolderBasename}",
         "build"
       ],
       "problemMatcher": "$gcc"
@@ -24,8 +25,9 @@
     {
       "label": "MyTest生成测试",
       "type": "shell",
-      "command": "mingw32-make APPNAME=${workspaceFolderBasename}",
+      "command": "mingw32-make",
       "args": [
+        "APPNAME=${workspaceFolderBasename}",
         "test"
       ],
       "problemMatcher": "$gcc"

@@ -1,3 +1,10 @@
+task.json  
+    执行编译，生成可执行程序
+    执行编译，生成测试程序
+    执行清理
+launch.json
+    执行调试，先调用task.json中的任务。
+
 修改工程名称：
 MyTest -> MyProject
 
@@ -23,3 +30,5 @@ APPNAME = mytest -> APPNAME = MyProject
  
 "name": "启动Mytest_test调试",
     -> "启动MyProject_test调试"
+
+
