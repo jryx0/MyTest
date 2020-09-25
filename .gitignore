@@ -1,3 +1,4 @@
-obj/
-out/
-test/obj/
+*.exe
+*.o
+*.d
+
