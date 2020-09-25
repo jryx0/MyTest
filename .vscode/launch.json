@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "启动Mytest调试",
+            "name": "Mytest调试",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\out\\myTest.exe",
+            "program": "${workspaceFolder}\\out\\${workspaceRootFolderName}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -27,10 +27,10 @@
             "internalConsoleOptions": "neverOpen"
         },
         {
-            "name": "启动Mytest_Test调试",
+            "name": "Mytest_Test调试",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\out\\myTest_Test.exe",
+            "program": "${workspaceFolder}\\out\\${workspaceRootFolderName}_Test.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

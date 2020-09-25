@@ -4,28 +4,31 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "MyTest Make build",
+      "label": "MyTest生成",
       "type": "shell",
-      "command": "mingw32-make",
+      "command": "mingw32-make APPNAME=${workspaceFolderBasename}",
       "args": [
         "build"
-      ]
+      ],
+      "problemMatcher": "$gcc"
     },
     {
-      "label": "MyTest Make clean",
+      "label": "MyTest清理",
       "type": "shell",
       "command": "mingw32-make",
       "args": [
         "clean"
-      ]
+      ],
+      "problemMatcher": "$gcc"
     },
     {
-      "label": "MyTest Make test",
+      "label": "MyTest生成测试",
       "type": "shell",
-      "command": "mingw32-make",
+      "command": "mingw32-make APPNAME=${workspaceFolderBasename}",
       "args": [
         "test"
-      ]
+      ],
+      "problemMatcher": "$gcc"
     }
   ]
 }

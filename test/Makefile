@@ -44,13 +44,18 @@ $(OBJDIR)/%.o: $(TESTDIR)/%$(EXT)
 	$(CC) $(CXXFLAGS)  -I $(INCDIR) -o $@ -c $<	
 
 
-$(CLEANW):
+$(CLEANW):   
+	@echo -----in test clean
 	$(DEL) $(WDELOBJ) $(WDELDEP) 
-	$(DEL) $(WDELAPP)
-	$(DEL) $(OBJDIR)\*.EXE
+	$(DEL) $(WDELAPP)	
+
+$(CLEAN):   
+	@echo -----in test clean
+	$(DEL) $(OBJ) $(DEP) 
+	$(DEL) $(OUTPUTDIR)/$(TESTAPPNAME).exe
 
 
-.PHONY: $(BUILD) $(SHOW)  $(CLEANW)
+.PHONY: $(BUILD) $(SHOW)  $(CLEANW) $(CLEAN)
 
 
 	
