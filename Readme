@@ -20,7 +20,6 @@ APPNAME = mytest -> APPNAME = MyProject
 
 "preLaunchTask": "MyTest Make test" 
     ->"preLaunchTask": "MyProject Make test"
-"program": "${workspaceFolder}\\out\\myTest.exe" 
-    ->"program": "${workspaceFolder}\\out\\MyProject_test.exe"
+ 
 "name": "启动Mytest_test调试",
     -> "启动MyProject_test调试"
